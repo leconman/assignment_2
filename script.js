@@ -33,8 +33,31 @@ function addR() {
 //Adds a column
 function addC() {
     //alert("Clicked Add Col")
+	let grid = document.getElementById("grid");
     let cols = document.getElementsByTagName("td");
     console.log(cols.length); 
+    if (cols.length === 0) {
+        let row = document.createElement("tr");
+        let col = document.createElement("td");
+        col.onclick = function (){
+            this.style.backgroundColor = colorSelected;
+        };
+        row.appendChild(col);
+        grid.appendChild(row);
+	}
+	else {
+		let rows = document.getElementsByTagName("tr");
+		
+		for (let i = 0; i < rows.length;++i) {
+			let col = document.createElement("td");
+	        col.onclick = function (){
+	            this.style.backgroundColor = colorSelected;
+	        };
+			rows[i].appendChild(col);
+		}
+		
+	}
+	
 }
 
 //Removes a row
