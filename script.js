@@ -62,7 +62,13 @@ function addC() {
 
 //Removes a row
 function removeR() {
-    alert("Clicked Remove Row")
+    //alert("Clicked Remove Row")
+	let grid = document.getElementById("grid");
+	let row = grid.lastElementChild;
+	for (let i = 0; i < row.childElementCount; ++i) {
+		row.removeChild(row.lastElementChild);
+	}
+	grid.removeChild(row);
 }
 //Remove a column
 function removeC() {
