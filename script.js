@@ -119,7 +119,11 @@ function fill(){
 }
 
 function clearAll(){
-    alert("Clicked Clear All")
+    //alert("Clicked Clear All")
+	let cols = document.getElementsByTagName("td");
+	for (let i = 0; i < cols.length; ++i) {
+		cols[i].style.backgroundColor = "white";
+	}
 }
 
 function fillU(){
