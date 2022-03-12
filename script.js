@@ -64,15 +64,45 @@ function addC() {
 function removeR() {
     //alert("Clicked Remove Row")
 	let grid = document.getElementById("grid");
+	if (grid.childElementCount === 0) {
+		alert("There is nothing to delete")
+	}
 	let row = grid.lastElementChild;
-	for (let i = 0; i < row.childElementCount; ++i) {
+	const count = row.childElementCount;
+	for (let i = 0; i < count; ++i) {
 		row.removeChild(row.lastElementChild);
 	}
 	grid.removeChild(row);
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    //alert("Clicked Remove Col")
+	let grid = document.getElementById("grid");
+	if (grid.childElementCount === 0) {
+		alert("There is nothing to delete")
+	}
+	
+	let rows = document.getElementsByTagName("tr");
+	let cols = document.getElementsByTagName("td");
+	
+	if (rows.length/cols.length === 1) {
+		const count = grid.childElementCount;
+		for (let i = 0; i < rows.length; ++i) {
+			let col = rows[i].lastElementChild;
+			rows[i].removeChild(col);
+		}
+		for (let i = 0; i < count; ++i) {
+			grid.removeChild(grid.lastElementChild);
+		}
+		
+	}
+	else {
+		for (let i = 0; i < rows.length; ++i) {
+			let col = rows[i].lastElementChild;
+			rows[i].removeChild(col);
+		}
+	}
+	
 }
 //sets global var for selected color
 function selected(){
