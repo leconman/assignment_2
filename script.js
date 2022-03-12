@@ -111,7 +111,11 @@ function selected(){
 }
 
 function fill(){
-    alert("Clicked Fill All")
+    //alert("Clicked Fill All")
+	let cols = document.getElementsByTagName("td");
+	for (let i = 0; i < cols.length; ++i) {
+		cols[i].style.backgroundColor = colorSelected;
+	}
 }
 
 function clearAll(){
