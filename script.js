@@ -67,12 +67,14 @@ function removeR() {
 	if (grid.childElementCount === 0) {
 		alert("There is nothing to delete")
 	}
-	let row = grid.lastElementChild;
-	const count = row.childElementCount;
-	for (let i = 0; i < count; ++i) {
-		row.removeChild(row.lastElementChild);
+	else {
+		let row = grid.lastElementChild;
+		const count = row.childElementCount;
+		for (let i = 0; i < count; ++i) {
+			row.removeChild(row.lastElementChild);
+		}
+		grid.removeChild(row);
 	}
-	grid.removeChild(row);
 }
 //Remove a column
 function removeC() {
@@ -81,25 +83,27 @@ function removeC() {
 	if (grid.childElementCount === 0) {
 		alert("There is nothing to delete")
 	}
-	
-	let rows = document.getElementsByTagName("tr");
-	let cols = document.getElementsByTagName("td");
-	
-	if (rows.length/cols.length === 1) {
-		const count = grid.childElementCount;
-		for (let i = 0; i < rows.length; ++i) {
-			let col = rows[i].lastElementChild;
-			rows[i].removeChild(col);
-		}
-		for (let i = 0; i < count; ++i) {
-			grid.removeChild(grid.lastElementChild);
-		}
-		
-	}
 	else {
-		for (let i = 0; i < rows.length; ++i) {
-			let col = rows[i].lastElementChild;
-			rows[i].removeChild(col);
+	
+		let rows = document.getElementsByTagName("tr");
+		let cols = document.getElementsByTagName("td");
+	
+		if (rows.length/cols.length === 1) {
+			const count = grid.childElementCount;
+			for (let i = 0; i < rows.length; ++i) {
+				let col = rows[i].lastElementChild;
+				rows[i].removeChild(col);
+			}
+			for (let i = 0; i < count; ++i) {
+				grid.removeChild(grid.lastElementChild);
+			}
+		
+		}
+		else {
+			for (let i = 0; i < rows.length; ++i) {
+				let col = rows[i].lastElementChild;
+				rows[i].removeChild(col);
+			}
 		}
 	}
 	
@@ -127,5 +131,11 @@ function clearAll(){
 }
 
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    //alert("Clicked Fill All Uncolored")
+	let cols = document.getElementsByTagName("td");
+	for (let i = 0; i < cols.length; ++i) {
+		if (!cols[i].style.backgroundColor || cols[i].style.backgroundColor=== "white") {
+			cols[i].style.backgroundColor = colorSelected;
+		}
+	}
 }
