@@ -127,8 +127,9 @@ function fill(){
 function clearAll(){
     //alert("Clicked Clear All")
 	let cols = document.getElementsByTagName("td");
+	let defaultColumn = document.createElement("td");
 	for (let i = 0; i < cols.length; ++i) {
-		cols[i].style.backgroundColor = "white";
+		cols[i].style.backgroundColor = defaultColumn.style.backgroundColor;
 	}
 }
 
@@ -137,7 +138,7 @@ function fillU(){
     //alert("Clicked Fill All Uncolored")
 	let cols = document.getElementsByTagName("td");
 	for (let i = 0; i < cols.length; ++i) {
-		if (!cols[i].style.backgroundColor || cols[i].style.backgroundColor=== "white") {
+		if (!cols[i].style.backgroundColor) {
 			cols[i].style.backgroundColor = colorSelected;
 		}
 	}
