@@ -114,6 +114,7 @@ function selected(){
     console.log(colorSelected);
 }
 
+// fills every cell with selected color
 function fill(){
     //alert("Clicked Fill All")
 	let cols = document.getElementsByTagName("td");
@@ -122,6 +123,7 @@ function fill(){
 	}
 }
 
+// sets the color of every cell back to white
 function clearAll(){
     //alert("Clicked Clear All")
 	let cols = document.getElementsByTagName("td");
@@ -130,6 +132,7 @@ function clearAll(){
 	}
 }
 
+// fills all white cells with selected color
 function fillU(){
     //alert("Clicked Fill All Uncolored")
 	let cols = document.getElementsByTagName("td");
